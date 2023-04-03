@@ -1,0 +1,57 @@
+Skip to content
+ 
+Search…
+All gists
+Back to GitHub
+Sign in
+Sign up
+Instantly share code, notes, and snippets.
+
+@Viva-La-Borat
+Viva-La-Borat/Amdocs.chatgpt
+Last active 4 days ago
+0
+0
+Code
+Revisions
+4
+<script src="https://gist.github.com/Viva-La-Borat/236713909617f64266f99536dfc23a7c.js"></script>
+Internal Application
+Amdocs.chatgpt
+function userCovert($username){
+    if($userName.split('',[System.StringSplitOptions]::RemoveEmptyEntries).Length -gt 1){
+        return "DisplayName -eq '$username'"
+    } else{
+        return "SamAccountName -eq '$username'"
+    }
+}
+
+$userName = Administrator 
+$Password = sf234wrer!@rsgdsggsfg
+Node:         inocere805.amdocs.br/10.67.234.1
+Node:         inocere805.amdocs.br/10.68.201.2
+Node:         inocere805.amdocs.com/10.63.201.3
+Node:         inocere805.amdocs.br/10.62.201.4
+
+
+
+
+while($userName){
+    get-aduser -filter $statement -Properties PasswordExpired, CN, DisplayName, CanonicalName, LockedOut, msRTCSIP-PrimaryUserAddress, memberof, msExchArchiveStatus | select @{Name="Username"; Expression={$_.SamAccountName}}, @{Name="Display Name <> CN"; Expression={if($_.DisplayName -eq $_.CN){$compareDisplayCN = "Same"}else{$compareDisplayCN = "Different"};($_.DisplayName,$_.CN) -join " < $compareDisplayCN > "}}, @{Name="OU"; Expression={
+    
+ to join this conversation on GitHub. Already have an account? Sign in to comment
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Internal Application · GitHub
